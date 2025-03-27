@@ -1,13 +1,12 @@
 import { useState } from 'react';
-import { signInWithEmailAndPassword } from 'firebase/auth'; 
-import { auth } from './config/firebaseConfij.js';
-
+import { signInWithEmailAndPassword } from 'firebase/auth';
+import { auth } from './firebase'; // Supondo que a autenticação esteja configurada nesse arquivo
 
 export default function App() {
     const [email, setEmail] = useState('');
     const [senha, setSenha] = useState('');
 
-    const autenticarComFirebase = async evento => {
+    const autenticarComFirebase = async (evento) => {
         evento.preventDefault();
 
         try {
@@ -26,7 +25,7 @@ export default function App() {
                     id="email"
                     name="email"
                     value={email}
-                    onChange={evento => setEmail(evento.target.value)}
+                    onChange={(evento) => setEmail(evento.target.value)}
                 />
 
                 <label htmlFor="password">Senha:</label>
@@ -34,7 +33,7 @@ export default function App() {
                     id="password"
                     type="password"
                     value={senha}
-                    onChange={evento => setSenha(evento.target.value)}
+                    onChange={(evento) => setSenha(evento.target.value)}
                 />
 
                 <button type="submit">Entrar</button>
@@ -42,6 +41,5 @@ export default function App() {
         </main>
     );
 }
-
 
 

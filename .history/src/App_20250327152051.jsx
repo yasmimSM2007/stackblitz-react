@@ -1,7 +1,6 @@
 import { useState } from 'react';
-import { signInWithEmailAndPassword } from 'firebase/auth'; 
-import { auth } from './config/firebaseConfij.js';
-
+import { signInWithEmailAndPassword } from 'firebase/auth';
+import { auth } from './firebase'; // Supondo que a autenticação esteja configurada nesse arquivo
 
 export default function App() {
     const [email, setEmail] = useState('');
