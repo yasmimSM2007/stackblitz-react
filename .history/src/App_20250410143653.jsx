@@ -1,8 +1,7 @@
 import { useState } from 'react';
 import { auth } from './config/firebaseConfig.js';
 import { signInWithEmailAndPassword } from 'firebase/auth'; 
-import { SignJWT } from 'jose';
-import './App.css';
+
 
 export default function App() {
     const [email, setEmail] = useState('');
@@ -10,24 +9,12 @@ export default function App() {
 
     const autenticarComFirebase = async (evento) => {
         evento.preventDefault();
+
         try {
-            
             await signInWithEmailAndPassword(auth, email, senha);
-            
-            const secretKey = new TextEncoder().encode('minhaChaveSecreta');
-
-            const token = await new SignJWT({ user: 'admin' })
-                .setProtectedHeader({ alg: 'HS256' })
-                .setIssuedAt()
-                .setExpirationTime('1h')
-                .sign(secretKey);  
-
-            
-            localStorage.setItem('token', token);
-
             alert('Logado com sucesso!');
         } catch (err) {
-            alert('Erro no processo: ' + err.message);
+            alert('Erro no processo: ' + err);
         }
     };
 
@@ -37,10 +24,10 @@ export default function App() {
                 <label htmlFor="email">E-mail:</label>
                 <input
                     id="email"
-                    name="email"
+                    name="e-mail"
                     type="email"
                     value={email}
-                    onChange={e => setEmail(e.target.value)}
+                    onChange={(evento) => setEmail(evento.target.value)}
                 />
 
                 <label htmlFor="password">Senha:</label>
@@ -48,11 +35,12 @@ export default function App() {
                     id="password"
                     type="password"
                     value={senha}
-                    onChange={e => setSenha(e.target.value)}
+                    onChange={(evento) => setSenha(evento.target.value)}
                 />
-
-                <button type="submit">Entrar</button>
             </form>
         </main>
     );
 }
+
+
+

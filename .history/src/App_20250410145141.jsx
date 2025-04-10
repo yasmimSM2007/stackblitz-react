@@ -2,7 +2,6 @@ import { useState } from 'react';
 import { auth } from './config/firebaseConfig.js';
 import { signInWithEmailAndPassword } from 'firebase/auth'; 
 import { SignJWT } from 'jose';
-import './App.css';
 
 export default function App() {
     const [email, setEmail] = useState('');
@@ -11,20 +10,17 @@ export default function App() {
     const autenticarComFirebase = async (evento) => {
         evento.preventDefault();
         try {
-            
             await signInWithEmailAndPassword(auth, email, senha);
-            
-            const secretKey = new TextEncoder().encode('minhaChaveSecreta');
+        const secretKey = new TextEncoder().encode('minhaChaveSecreta');
 
-            const token = await new SignJWT({ user: 'admin' })
-                .setProtectedHeader({ alg: 'HS256' })
-                .setIssuedAt()
-                .setExpirationTime('1h')
-                .sign(secretKey);  
+        const token = await new SignJWT({ user: 'admin'})
+        .setProtectedHeader({ alg: 'HS256'})
+        .setIssuedAt()
+        .setExpirationTime('1h')
+        .sing(secretKey);
 
-            
-            localStorage.setItem('token', token);
-
+        localStorage.setItem('token', token);
+        
             alert('Logado com sucesso!');
         } catch (err) {
             alert('Erro no processo: ' + err.message);

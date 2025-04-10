@@ -11,18 +11,19 @@ export default function App() {
     const autenticarComFirebase = async (evento) => {
         evento.preventDefault();
         try {
-            
+            // Autentica com o Firebase
             await signInWithEmailAndPassword(auth, email, senha);
             
             const secretKey = new TextEncoder().encode('minhaChaveSecreta');
 
+            // Corrigido o método "sing" para "sign"
             const token = await new SignJWT({ user: 'admin' })
                 .setProtectedHeader({ alg: 'HS256' })
                 .setIssuedAt()
                 .setExpirationTime('1h')
-                .sign(secretKey);  
+                .sign(secretKey);  // Método correto
 
-            
+            // Armazena o token no localStorage
             localStorage.setItem('token', token);
 
             alert('Logado com sucesso!');
