@@ -1,7 +1,6 @@
 import { useState } from 'react';
 import { signInWithEmailAndPassword } from 'firebase/auth'; 
-import { auth } from './config/firebaseConfig.js';
-
+import { auth } from './config/firebaseConfig.js';  // Corrigido o nome do arquivo
 
 export default function App() {
     const [email, setEmail] = useState('');
@@ -14,7 +13,7 @@ export default function App() {
             await signInWithEmailAndPassword(auth, email, senha);
             alert('Logado com sucesso!');
         } catch (err) {
-            alert('Erro no processo: ' + err);
+            alert('Erro no processo: ' + err.message);  // Exibe a mensagem do erro
         }
     };
 
