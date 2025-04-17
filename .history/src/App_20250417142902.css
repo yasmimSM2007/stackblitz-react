@@ -1,0 +1,56 @@
+main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  background-color: #FFF3E0; /* Fundo laranja bem claro */
+  font-family: Arial, sans-serif;
+}
+
+h2 {
+  color: #FB8C00; /* Laranja forte e vibrante */
+  margin-bottom: 20px;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  background: #FFE0B2; /* Laranja clarinho */
+  padding: 30px;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(251, 140, 0, 0.2); /* Sombra alaranjada */
+  width: 300px;
+}
+
+input {
+  margin-bottom: 15px;
+  padding: 10px;
+  border: 2px solid #FFB74D; /* Laranja médio */
+  border-radius: 8px;
+  outline: none;
+  font-size: 16px;
+  background-color: #FFFFFF;
+  color: #212121;
+}
+
+input:focus {
+  border-color: #FFA000; /* Laranja Firebase */
+  background-color: #FFECB3; /* Laranja bem claro no foco */
+}
+
+button {
+  background-color: #FFA000; /* Laranja principal do Firebase */
+  color: white;
+  padding: 12px;
+  border: none;
+  border-radius: 8px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s, transform 0.2s;
+}
+
+button:hover {
+  background-color: #F57C00; /* Laranja escuro no hover */
+  transform: scale(1.03);
+}

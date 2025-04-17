@@ -1,0 +1,55 @@
+main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  background-color: #F5F5F5; /* Cinza claro Firebase */
+  font-family: Arial, sans-serif;
+}
+
+h2 {
+  color: #FFA000; /* Laranja Firebase */
+  margin-bottom: 20px;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  background: #FFF8E1; /* Amarelo muito claro de fundo */
+  padding: 30px;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(255, 160, 0, 0.2); /* Sombra laranja */
+  width: 300px;
+}
+
+input {
+  margin-bottom: 15px;
+  padding: 10px;
+  border: 2px solid #FFCA28; /* Amarelo Firebase */
+  border-radius: 8px;
+  outline: none;
+  font-size: 16px;
+  background-color: #FFFFFF;
+  color: #212121; /* Texto escuro */
+}
+
+input:focus {
+  border-color: #FFA000; /* Laranja ao focar */
+  background-color: #FFF3E0; /* Amarelo clarinho ao focar */
+}
+
+button {
+  background-color: #FFA000; /* Laranja Firebase */
+  color: white;
+  padding: 12px;
+  border: none;
+  border-radius: 8px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+button:hover {
+  background-color: #FF8F00; /* Laranja escuro ao passar o mouse */
+}

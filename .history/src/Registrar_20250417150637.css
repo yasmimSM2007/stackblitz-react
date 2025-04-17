@@ -5,53 +5,53 @@ main {
   align-items: center;
   justify-content: center;
   min-height: 100vh;
-  background: #FCE4EC; /* Fundo suave em rosa claro */
+  background: linear-gradient(to bottom right, #E3F2FD, #81D4FA); /* Fundo azul suave */
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
 /* Estilo para o título */
 h2 {
-  color: #D81B60; /* Rosa vibrante */
+  color: #1565C0; /* Azul mais forte */
   font-size: 28px;
   margin-bottom: 20px;
-  text-shadow: 1px 1px 2px rgba(216, 27, 96, 0.2);
+  text-shadow: 1px 1px 2px rgba(21, 101, 192, 0.2);
 }
 
 /* Estilo para o formulário */
 form {
   display: flex;
   flex-direction: column;
-  background: linear-gradient(to bottom, #F8BBD0, #F48FB1); /* Gradiente de rosa claro para rosa escuro */
+  background: linear-gradient(to bottom, #BBDEFB, #90CAF9); /* Gradiente azul claro */
   padding: 35px;
   border-radius: 16px;
-  box-shadow: 0 8px 20px rgba(255, 64, 129, 0.25);
+  box-shadow: 0 8px 20px rgba(33, 150, 243, 0.3);
   width: 320px;
-  border: 2px solid #D81B60;
+  border: 2px solid #1565C0;
 }
 
 /* Estilo para os campos de input */
 input {
   margin-bottom: 16px;
   padding: 12px;
-  border: 2px solid #F06292;
+  border: 2px solid #42A5F5;
   border-radius: 10px;
   outline: none;
   font-size: 16px;
-  background-color: #FCE4EC;
+  background-color: #E3F2FD;
   color: #212121;
   transition: 0.2s ease;
 }
 
 /* Efeito ao focar no input */
 input:focus {
-  border-color: #D81B60;
-  background-color: #F8BBD0;
-  box-shadow: 0 0 6px rgba(216, 27, 96, 0.3);
+  border-color: #1565C0;
+  background-color: #BBDEFB;
+  box-shadow: 0 0 6px rgba(21, 101, 192, 0.3);
 }
 
 /* Estilo para os botões */
 button {
-  background-color: #D81B60; /* Rosa vibrante */
+  background-color: #1565C0; /* Azul dominante */
   color: #FFF;
   padding: 14px;
   border: none;
@@ -64,7 +64,7 @@ button {
 
 /* Efeito ao passar o mouse */
 button:hover {
-  background-color: #C2185B; /* Rosa mais escuro */
+  background-color: #0D47A1; /* Azul mais forte */
   transform: translateY(-2px);
-  box-shadow: 0 6px 12px rgba(194, 24, 91, 0.3);
+  box-shadow: 0 6px 12px rgba(13, 71, 161, 0.3);
 }
