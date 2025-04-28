@@ -1,20 +1,36 @@
 import { useState } from 'react';
+import { auth } from './config/firebaseConfig.js';
 import { signInWithEmailAndPassword } from 'firebase/auth'; 
-import { auth } from './config/firebaseConfij.js';
-
+import { SignJWT } from 'jose';
+import './App.css';
+import { Link, useNavigate } from 'react-router-dom';
 
 export default function App() {
     const [email, setEmail] = useState('');
     const [senha, setSenha] = useState('');
+    const navigate = useNavigate();
 
-    const autenticarComFirebase = async evento => {
+    const autenticarComFirebase = async (evento) => {
         evento.preventDefault();
-
         try {
+            
             await signInWithEmailAndPassword(auth, email, senha);
+            
+            const secretKey = new TextEncoder().encode('minhaChaveSecreta');
+
+            const token = await new SignJWT({ user: 'admin' })
+                .setProtectedHeader({ alg: 'HS256' })
+                .setIssuedAt()
+                .setExpirationTime('1h')
+                .sign(secretKey);  
+
+            
+            localStorage.setItem('token', token);
+
             alert('Logado com sucesso!');
+            navigate('/');
         } catch (err) {
-            alert('Erro no processo: ' + err);
+            alert('Erro no processo: ' + err.message);
         }
     };
 
@@ -25,8 +41,9 @@ export default function App() {
                 <input
                     id="email"
                     name="email"
+                    type="email"
                     value={email}
-                    onChange={evento => setEmail(evento.target.value)}
+                    onChange={e => setEmail(e.target.value)}
                 />
 
                 <label htmlFor="password">Senha:</label>
@@ -34,14 +51,14 @@ export default function App() {
                     id="password"
                     type="password"
                     value={senha}
-                    onChange={evento => setSenha(evento.target.value)}
+                    onChange={e => setSenha(e.target.value)}
                 />
 
                 <button type="submit">Entrar</button>
             </form>
+            <Link to="/Registrar">
+            <p>Não tenho conta!</p>
+            </Link>
         </main>
     );
 }
-
-
-
